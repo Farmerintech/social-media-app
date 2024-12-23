@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const ChatSchema = mongoose.Schema({
-    userId:{
+    sender:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'user'
     },
@@ -15,4 +15,4 @@ const ChatSchema = mongoose.Schema({
     },
     isRead:false
 }, {timestamps})
-export const ChatModel = ('chat', ChatSchema)
+export const ChatModel = ('Chat', ChatSchema)

@@ -47,10 +47,7 @@ export const Login = async (req, res) => {
                 username:user.username
             },
             process.env.SECRET_KEY,
-            {
-                expiresIn:process.env.LIFE_TIME
-            }
-            
+            {expiresIn:process.env.LIFE_TIME}
         )
         return res.status(200).json({message:"Login successful", user:{id, email, username, token}})
     } catch (error) {

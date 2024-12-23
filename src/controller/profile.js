@@ -18,7 +18,7 @@ export const updateProfile = async(req, res) => {
 export const getProfile = async (req, res) => {
     try {
         const username = req.params.user
-        const user = await UserModel.findOne({username}).populate("posts");
+        const user = await UserModel.findOne({username}).populate("posts").populate("followers");
         if(!user){
             return res.status(404).json({message:"User not found"})
         } 
