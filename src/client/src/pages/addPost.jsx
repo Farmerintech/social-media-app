@@ -44,6 +44,9 @@ export const MakePost = () =>{
           axios.post(`http://localhost:8000/api/v1/posts`, form, {headers})
           .then(response =>{
               setMsg(response.data.message)
+              setForm({
+                content:""
+              })
              })
           .catch (error => {
               setMsg(error.response.data.message)
@@ -63,6 +66,7 @@ export const MakePost = () =>{
                 <Link to="/"><img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/></Link>
               
                     <input type="text" 
+                    value={form.content}
                     className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-800 text-white"}  outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"

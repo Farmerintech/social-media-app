@@ -4,7 +4,8 @@ import { Footer } from "./footer"
 import { useContext, useState, useEffect,  } from "react"
 import { UserContext } from "./context/usersReducer"
 import axios from "axios"
-import { useNavigate } from "react-router"
+import { Link, useNavigate } from "react-router"
+import { Users } from "./user"
 export const Chat = () =>{
     const {state, dispatch} = useContext(UserContext)
     const [data, setData] = useState()
@@ -50,7 +51,22 @@ export const Chat = () =>{
                <div className="flex justify-between items-center p-5">
                 <h3 className="font-bold">Messages</h3>
                 <MdSearch/>
+                
                </div>
+               <section className={` `}>
+            
+            {data && data.followers.length ?
+                data.followers.map(follower =>(
+            <section className={`p-5`}>
+            <Link to ={`/dm/${follower._id}`}><div className=" flex gap-2 w-[100%] items-center ">
+               <img src={avater} alt="user" className="w-[30px] 
+               h-[30px] rounded "/>
+               <p className="text-xs">{follower.username}</p>
+            </div></Link>
+        </section>            ))
+            :<p className="text-center">You have no followers Yet</p>}
+            </section>
+
             </section>
             <section className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"}  h-[150px] mt-5`}>
                <div className="flex justify-between items-center p-5">

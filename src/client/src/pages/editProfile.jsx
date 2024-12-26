@@ -107,7 +107,7 @@ const [isLoading, setIsLoading] = useState(false)
             value={form.bio}
             onChange={handleForm}
            className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
-            leading-tight focus:outline-none focus:shadow-outline`}
+            leading-tight focus:outline-none focus:shadow-outline h-[100px]`}
             id="bio" type="text" placeholder="bio"/> 
             </div> 
             <div className="px-10 py-3">
@@ -174,7 +174,7 @@ const [isLoading, setIsLoading] = useState(false)
             value={form.bio}
             onChange={handleForm}
            className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
-            leading-tight focus:outline-none focus:shadow-outline`}
+            leading-tight focus:outline-none focus:shadow-outline h-[100px]`}
             id="bio" type="text" placeholder="bio"/> 
             </div> 
             <div className="px-10 py-3">

@@ -7,6 +7,10 @@ import postRoute from "./src/route/postRoute.js";
 import commentRoute from "./src/route/commentRoute.js";
 import FollowRoute from "./src/route/followRoute.js";
 import UserRoute from "./src/route/userRoute.js";
+import LikeRoute from "./src/route/likeRoute.js";
+import ChatRoute from "./src/route/chatRoute.js"; 
+import http from 'http';
+import { Server } from 'socket.io';
 
 const app = express();
 const PORT = process.env.PORT || 8000
@@ -15,7 +19,19 @@ app.use(express.urlencoded({extended:false}))
 app.use(cors())
 connectDB()
 
-
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: 'http://localhost:5173', // Vite's default development server URL
+        methods: ['GET', 'POST']
+    }
+});
+io.on('connection', (socket) => {
+    console.log('A user connected');
+    socket.on('disconnect', () => {
+        console.log('A user disconnected');
+    });
+});
 
 app.use('/api/v1/auth', AuthRoute)
 app.use ('/api/v1/profile', ProfileRoute)
@@ -23,6 +39,10 @@ app.use ('/api/v1/posts', postRoute)
 app.use('/api/v1/posts', commentRoute)
 app.use("/api/v1/follow", FollowRoute)
 app.use("/api/v1/users", UserRoute)
+app.use("/api/v1/like", LikeRoute)
+app.use("/api/v1/chats", ChatRoute)
+
+
 app.use(express.static('client'))
 
 app.listen(PORT, () => {

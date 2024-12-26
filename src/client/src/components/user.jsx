@@ -5,12 +5,10 @@ import { UserContext } from "./context/usersReducer"
 export const Users = ({user}) =>{
     const {state, dispatch} = useContext(UserContext)
     return(
-        <section className={`flex w-[full] px-10 py-3 items-center gap-5 rounded-md ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"}`}>
-            <div className=" flex-col w-[60px] ]">
-               <div className="w-[52px] border border-purple-800 rounded-xs">
+        <section className={``}>
+            <div className=" flex-col w-[60px] items-center ">
                <img src={avater} alt="user" className="w-[50px] 
-               h-[50px] border "/>
-              </div> 
+               h-[50px] rounded "/>
                <p className="text-xs">{user}</p>
             </div>
         </section>

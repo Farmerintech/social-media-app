@@ -1,9 +1,9 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import avater from "../assets/avatar.jpg"
 import axios from "axios"
 import { UserContext } from "./context/usersReducer"
 
-export const AddPost = () =>{
+export const EditPost = ({postId}) =>{
     const [form, setForm] = useState({
           content:''
     })
@@ -13,10 +13,7 @@ export const AddPost = () =>{
     const [data, setData] = useState({
     })
     const [msg, setMsg] = useState()
-    const headers = {
-        "Content-type":"application/json",
-        "Authorization":`Bearer ${state.user.token}`
-    }
+    
 
         
      if(!state.user || state.user.username === ''){
@@ -28,7 +25,25 @@ export const AddPost = () =>{
         })
         console.log(form)
     }
+    useEffect(()=>{
+        const headers = {
+            "Content-type":"application/json",
+            "Authorization":`Bearer ${state.user.token}`
+        }
+        axios.get(`http://localhost:8000/api/v1/posts/${postId}`, {headers})
+        .then(response =>{
+            setData(response.data.post);
+            // setForm({
+            //   content:response.data.post.content
+            // })
+           })
+        .catch (error => {
+            setMsg(error.response.data.message)
+            console.log(error)
+        })
+    })
     const handleSubmit = (event) => {
+
           event.preventDefault()
           if(form.content === ''){
               setMsg("post field is empty")
@@ -38,7 +53,7 @@ export const AddPost = () =>{
               "Content-type":"application/json",
               "Authorization":`Bearer ${state.user.token}`
           }
-          axios.post(`http://localhost:8000/api/v1/posts`, form, {headers})
+          axios.put(`http://localhost:8000/api/v1/posts/${postId}`, form, {headers})
           .then(response =>{
               setMsg(response.data.message);
               setForm({
@@ -54,12 +69,11 @@ export const AddPost = () =>{
     return(
         <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} p-5 rounded-md`}>
             <form onSubmit={handleSubmit}>
-                <p>{msg}</p>
             <div className="flex justify-around gap-2 items-center">
                 <img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/>
               
                     <input type="text" 
-                    value={form.content}
+                    value={data.content||form.content}
                     className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"

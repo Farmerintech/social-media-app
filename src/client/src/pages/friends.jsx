@@ -6,6 +6,7 @@ import { DashMenu } from "../components/dash-menu";
 import { Search } from "../components/search";
 import { Footer } from "../components/footer";
 import { Link } from "react-router";
+import { handleFollow } from "../components/follow";
 
 export const Friends = () => {
   const [res, setRes] = useState();
@@ -44,31 +45,7 @@ export const Friends = () => {
   }, [state.user.id]);
 
   // Handle follow button click
-  const handleFollow = (id, username) => {
-    axios
-      .post(
-        `http://localhost:8000/api/v1/follow/${username}`,
-        {}, // Empty body since no data is needed
-        { headers }
-      )
-      .then((response) => {
-        setResp(response.data);
-        setMsg(`You are now following ${username}`);
-        // Update local state to reflect the follow action
-        // setData((prev) => ({
-        //   ...prev,
-        //   user: {
-        //     ...prev.user,
-        //     following: [...(prev.user.following || []), { _id: id }],
-        //   },
-        // }));
-        location.reload()
-      })
-      .catch((error) => {
-        setMsg(error.response?.data?.message || "Error following user");
-        console.error(error);
-      });
-  };
+  
 
   return (
     <>
@@ -109,7 +86,7 @@ export const Friends = () => {
                   </div>
                   <div>
                     <button
-                      onClick={() => handleFollow(user.id, user.username)}
+                      onClick={() => handleFollow(user.id, user.username, state.user.token)}
                       className="bg-purple-800 text-white px-4 py-2 rounded"
                     >
                       {data &&
@@ -139,8 +116,8 @@ export const Friends = () => {
                       className="w-[50px] h-[50px] border rounded-full"
                     />
                     <div>
-                      <p>{user.username}</p>
-                      <p className="text-purple-800 text-xs">
+                    <p><Link to ={`/${user.username}`}>{user.username}</Link></p>                      
+                    <p className="text-purple-800 text-xs">
                         @{user.username}
                       </p>
                       {data &&

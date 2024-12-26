@@ -7,6 +7,7 @@ import { Search } from "../components/search"
 import { DashMenu } from "../components/dash-menu"
 import { BiChat, BiHeart } from "react-icons/bi"
 import { Footer } from "./footer"
+import { MdMessage } from "react-icons/md"
 
 export const UserCard = ({username}) =>{
     const [data, setData] = useState()
@@ -111,6 +112,9 @@ export const UserCard = ({username}) =>{
             </div>:""
         }
             </div>
+            <div >
+                <Link to={`/dm/${data._id}`}><MdMessage/></Link>
+            </div>
             <div>
             <p>{data.bio}</p>
             </div>
@@ -179,6 +183,10 @@ export const UserCard = ({username}) =>{
             </div>:""
         }
             </div>
+            <div >
+                <Link to={`/dm/${data._id}`}><MdMessage/></Link>
+            </div>
+            
             <div>
             <p>{data.bio}</p>
             </div>

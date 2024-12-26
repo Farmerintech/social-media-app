@@ -10,9 +10,7 @@ export const InitialStates = {
         username: '',
         token: '',
     },
-    message: {
-        text: ''
-    },
+    message: "yyy",
     theme:"light"
 };
 export const getInitialState = () =>{
@@ -35,9 +33,16 @@ export const UserReducer = (state, action) => {
                 ...state,
                     theme:action.payload // Spread operator to merge incoming user info
                 }
+        case 'displayMessage':
+            return {
+                ...state,
+                    message:action.payload
+            }
         case 'Logout':
             // Reset user state on logout
-            return InitialStates; // Reset to initial state instead of null
+            return null; // Reset to initial state instead of null
+        
+             
         default:
             return state; // Return current state if no action matches
     }

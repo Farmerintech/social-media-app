@@ -15,6 +15,8 @@ import { Friends } from './pages/friends.jsx';
 import { Myprofile } from './pages/profile.jsx';
 import { UserProfile } from './pages/usersProfile.jsx';
 import { EditProfile } from './pages/editProfile.jsx';
+import { ChatPage } from './pages/chatPage.jsx';
+import { EditPostPage } from './pages/editPost.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -29,10 +31,11 @@ createRoot(document.getElementById('root')).render(
       <Route path="/add_post" element={<MakePost />} />
       <Route path="/friends" element={<Friends />} />
       <Route path="/post/add_comment/:postId" element={<SinglePost />} />
+      <Route path="/edit_post/:id" element={<EditPostPage />} />
       <Route path="/my_profile" element={<Myprofile />} />
       <Route path="/:username" element={<UserProfile />} />
       <Route path="/edit_profile" element={<EditProfile />} />
-
+      <Route path="/dm/:id" element={<ChatPage />} />
     </Routes>
   </BrowserRouter>  
   </UserProvider>

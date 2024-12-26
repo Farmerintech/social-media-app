@@ -13,6 +13,7 @@ const ChatSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    isRead:false
-}, {timestamps})
-export const ChatModel = ('Chat', ChatSchema)
+    // isRead:false
+}, {timestamps:true})
+
+export const ChatModel =  mongoose.model('Chat', ChatSchema)

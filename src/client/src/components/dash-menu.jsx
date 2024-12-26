@@ -25,10 +25,10 @@ export const DashMenu = ({aditiionalStyle}) => {
     return(
         <>
         <section className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} w-[100%] md:w-[260px] p-5 shadow-md min-h-screen fixed left-0 ${aditiionalStyle}`}>
-            <h2 className="font-bold text-2xl">Purple</h2>
+            <h2 className="font-bold text-2xl">Pur<span className="text-purple-800 text-3xl">ple</span></h2>
                 <div className="flex">
                     <div className="border-b border-gray-300 my-4 w-[100%]"></div>
-                    <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} w-[30px] h-[30px] rounded-full border-b flex items-center justify-center border-gray-700`}>
+                    <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} w-[30px] h-[30px] rounded-full flex items-center justify-center border-gray-700`}>
                         <MdChevronLeft size={20}/>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ export const DashMenu = ({aditiionalStyle}) => {
             </ul>
             <hr className="my-4 border-gray-300"/>
             <p>Account</p>
-            <ul>
+            <ul className="min-h-screen">
                 <li className="flex items-center gap-3 mb-3"><MdOutlineSettings/>Settings</li>
                 <li className="flex items-center gap-3 mb-3" onClick={Logout}><MdOutlineLogout/>Logout</li>
             </ul>

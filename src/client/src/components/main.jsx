@@ -34,11 +34,14 @@ export const Main = () =>{
     return (
         <main className="flex flex-col gap-5 lg:w-[50%] md:w-[40%] p-5 md:pt-5 relative lg:left-[22%] md:left-[32%]">
             <Search/>
+            <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} flex w-[full] px-10 py-3 items-center gap-5 `}>
+
             {data && data.followers.length ?
-            data.followers.map(follower =>(
-               <Users user={follower.username}/>
+                data.followers.map(follower =>(
+                <Users user={follower.username}/>
             ))
             :<p className="text-center">You have no followers Yet</p>}
+            </section>
             <AddPost/>
             <Post/>
         </main>
