@@ -24,7 +24,7 @@ export const Friends = () => {
   // Fetch user and friend list on mount
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/v1/users/${state.user.id}`, { headers })
+      .get(`/api/v1/users/${state.user.id}`, { headers })
       .then((response) => {
         setData(response.data);
       })
@@ -34,7 +34,7 @@ export const Friends = () => {
       });
 
     axios
-      .get(`http://localhost:8000/api/v1/users`, { headers })
+      .get(`/api/v1/users`, { headers })
       .then((response) => {
         setRes(response.data);
       })
