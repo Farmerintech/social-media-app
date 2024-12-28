@@ -4,7 +4,7 @@ import { UserContext } from "./context/usersReducer"
 import avater from "../assets/avatar.jpg"
 import { BiChat, BiHeart } from "react-icons/bi"
 import { MdDelete, MdEdit } from "react-icons/md"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import { FaHeart } from "react-icons/fa"
 
 export const SinglePostCard = ({postId}) => {
@@ -25,11 +25,11 @@ export const SinglePostCard = ({postId}) => {
         axios.get(`/api/v1/posts/${postId}`, {headers})
         .then(response =>{
             setData(response.data)
-            console.log(response.data.post)
+            // console.log(response.data.post)
            
                  axios.get(`/api/v1/users`, {headers})
                  .then(response =>{
-                    console.log(response.data)
+                    // console.log(response.data)
                     setRes(response.data)
                  })
                  .catch (error => {
@@ -74,22 +74,18 @@ export const SinglePostCard = ({postId}) => {
         
      
      }
-     
+     const navigate = useNavigate()
 const DeletePost = ()=>{
     const headers = {
         "Content-type":"application/json",
-        "Authorization":`Bearer ${token}`
+        "Authorization":`Bearer ${state.user.token}`
     }
             axios.delete(`/api/v1/posts/${postId}`, 
-                {}, // Empty body since no data is needed
             {headers})
             .then(response =>{
-               console.log('post deleted')
-            //    setMsg(response.data)
+             alert('post deleted');
+             navigate('/')
             setText(response.data.Message)
-           setInterval(()=>{
-                setText('')
-            }, 1000)
             })
             .catch (error => {
             //  msg = (error.response.data.message)

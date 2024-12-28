@@ -37,7 +37,7 @@ export const Chat = () =>{
             <div className="flex justify-around items-center mb-5">
                 <div className="hidden md:block relative">
                    <Link to='/notifications'>
-                     <span className="absolute bg-purple-800 w-[5px] h-[5px] rounded-full left-[100] top-[100]"></span>
+                     <span className="absolute bg-purple-500 w-[5px] h-[5px] rounded-full left-[100] top-[100]"></span>
                     <MdOutlineNotifications size={20}/>
                 </Link> 
                 </div>
