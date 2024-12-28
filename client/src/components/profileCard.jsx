@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../components/context/usersReducer"
+import { UserContext } from "./context/usersReducer"
 import avater from "../assets/avatar.jpg"
 import axios from "axios"
 import { useNavigate } from "react-router"
