@@ -1,6 +1,7 @@
 import UserModel from "../model/userModel.js";
 import mongoose from "mongoose";
 import PostModel from "../model/postModel.js";
+import { NotifyModel } from "../model/notificationModel.js";
 export const LikeAndUnlike = async (req, res) => {
    try {
     const user = await UserModel.findOne({username:req.user.username});
@@ -15,8 +16,18 @@ export const LikeAndUnlike = async (req, res) => {
         //await UserModel.findByIdAndUpdate(followedUser._id, {followers:user._id}, {new:true}  );
         await PostModel.findByIdAndUpdate(likedPost._id, 
             {likes:likedPost.likes.length > 0 ? [...likedPost.likes, user._id]: user._id}, {new:true} )
-        return res.status(200).json({Message:"Post liked successfully.."})
+          await NotifyModel.create(
+                        {
+                            userId:req.user.id,
+                            receiver:likedPost.createdBy,
+                            message:`${req.user.username} liked your post`,
+                            payload:likedPost._id,
+                            type:'like'
+                        }
+                    )
+    return res.status(200).json({Message:"Post liked successfully.."})
     }
+
     // if  already liked, then unlike
     if(alreadyLiked){
         //await UserModel.findByIdAndUpdate(followedUser._id, {$pull: {followers:user._id}}, {new:true} );

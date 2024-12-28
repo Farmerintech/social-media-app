@@ -8,6 +8,7 @@ import { DashMenu } from "./dash-menu"
 import { Footer } from "./footer"
 import {io} from "socket.io-client"
 import axios from "axios"
+import { useRef } from "react"
 export const ChatBox =({userB}) =>{
 
     const [chat, setChat] = useState({
@@ -23,14 +24,17 @@ export const ChatBox =({userB}) =>{
         })  
     }
     // const receiver = useParams(receiver)
-
+    const chatRef = useRef();
     const handleSubmit = (event) =>{
         event.preventDefault()
         const headers = {
             "Content-type":"application/json",
             "Authorization":`Bearer ${state.user.token}`
         }
-        axios.post(`http://localhost:8000/api/v1/chats/${userB}`, chat, {headers})
+        axios.get(`/api/v1/profile/${userB}`, {headers})
+        .then(res=>{
+
+        axios.post(`/api/v1/chats/${res.data.user._id}`, chat, {headers})
         .then(response =>{
             // setMsg(response.data)
             console.log(response.data)
@@ -42,35 +46,31 @@ export const ChatBox =({userB}) =>{
             // setMsg(error.response.data.message)
             console.log(error)
         })
+      })
+      chatRef.current.scrollTo({
+        top:chatRef.current.scrollHeight,
+        behavior:"smooth"
+      })
     }
     useEffect(() => {
-        // const socket = io("http://localhost:8000/api/v1/chat"); // Replace with your server URL
-        // socket.on('connect', () => {
-        //     console.log('Connected to server:', socket.id);
-        // });
-
-        // socket.on('disconnect', () => {
-        //     console.log('Disconnected from server');
-        // });
-
-        // return () => {
-        //     socket.off('connect');
-        //     socket.off('disconnect');
-        // };
         const headers = {
             "Content-type":"application/json",
             "Authorization":`Bearer ${state.user.token}`
         }
         const userA= state.user.id;
-        axios.get(`http://localhost:8000/api/v1/chats?userA=${userA}&userB=${userB}`, {headers})
+        axios.get(`/api/v1/profile/${userB}`, {headers})
+        .then(response =>{
+       
+        axios.get(`/api/v1/chats?userA=${userA}&userB=${response.data.user._id}`, {headers})
         .then(response =>{
             setMsg(response.data)
-            console.log(response.data)
+            // console.log(response.data)
            })
         .catch (error => {
             // setMsg(error.response.data.message)
             console.log(error)
         })
+      })
     }, [msg]);
 
     
@@ -80,11 +80,23 @@ export const ChatBox =({userB}) =>{
         <DashMenu/>
         <main className="flex flex-col gap-5  xl:w-[70%] lg:w-[50%] md:w-[50%] pt-5 relative lg:left-[22%] md:left-[35%]">
         <main className="">
+           <div className="flex justify-around items-center mb-5">
+              <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] p-2 text-xs rounded-md`}>
+                                      <p></p>
+                                      <div className="flex items-center gap-5 ">
+                                          <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
+                                          <div>
+                                            <h2>{userB}</h2>
+                                            <p className="text-purple-500">@{userB}</p>
+                                          </div>
+                                      </div>
+                                      </div>
+                      </div>
             <div>
                 <p>Message</p>
             </div>
             <div className="mb-10 pb-10">
-                <ul className="mt-10 mb-10 min-h-screen pb-10">
+                <ul className="mt-10 mb-10 min-h-screen pb-10" ref={chatRef}>
                 {msg && msg.chats.map(msg=>(
                    <li
                    className={`
@@ -137,16 +149,30 @@ export const ChatBox =({userB}) =>{
         </section>
         <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} md:hidden justify-between min-h-screen`}>
         <main className="">
-            <Link to='/'>
+        <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] p-2 text-xs flex items-center`}>
+        <Link to='/'>
                <MdChevronLeft size={25}/>
-            </Link>
+            </Link>      
+                                    
+                              <p></p>
+                                      <div className="flex items-center gap-5 ">
+                                          <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
+                                          <div>
+                                            <h2>{userB}</h2>
+                                            <p className="text-purple-500">@{userB}</p>
+                                          </div>
+                                      </div>
+                                      </div>
+                    
+           
             <div className="">
                 <p>Message</p>
             </div>
             <div className="mb-10">
-                <ul className="mb-20  min-h-screen pb-20 ml-5 mr-5 ">
+                <ul className="mb-20  min-h-screen pb-20 ml-5 mr-5 "  ref={chatRef}>
                 {msg && msg.chats.map(msg=>(
                         <li
+                        key={msg._id}
                         className={`
                           ${
                             state.theme === "light"

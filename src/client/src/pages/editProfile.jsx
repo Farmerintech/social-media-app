@@ -38,7 +38,7 @@ const [isLoading, setIsLoading] = useState(false)
             "Authorization":`Bearer ${state.user.token}`
         }
         console.log(form)
-    axios.put('http://localhost:8000/api/v1/profile/update', form, {headers})
+    axios.put('/api/v1/profile/update', form, {headers})
            .then(response =>{
             setMsg(response.data.message)
            

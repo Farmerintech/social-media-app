@@ -1,3 +1,4 @@
+import { NotifyModel } from "../model/notificationModel.js";
 import UserModel from "../model/userModel.js";
 import mongoose from "mongoose";
 
@@ -23,7 +24,18 @@ export const FollowandUnfollow = async (req, res) => {
             {following: user.following.length > 0 ? [ ...user.following, followedUser._id]: followedUser._id}, 
             {new:true} )
         return res.status(200).json({Message:"Followed successfully.."})
+        
     }
+            await NotifyModel.create(
+                {
+                    userId:req.user.id,
+                    receiver:followedUser._id,
+                    message:`${req.user.username} followed you`,
+                    payload:req.user.id,
+                    type:'follow'
+                }
+            )
+    
     // if  already followed, then unfollow
     if(alreadyFollowed){
         await UserModel.findByIdAndUpdate(followedUser._id, {$pull: {followers:user._id}}, {new:true} );

@@ -26,11 +26,11 @@ import { Modal } from "./modal"
         setShow(!show)
     }
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/posts`, {headers})
+        axios.get(`/api/v1/posts`, {headers})
         .then(response =>{
             setData(response.data)
             // console.log(response.data)
-            axios.get(`http://localhost:8000/api/v1/users`, {headers})
+            axios.get(`/api/v1/users`, {headers})
             .then(response =>{
             //    console.log(response.data)
                setRes(response.data)
@@ -53,7 +53,7 @@ const [text, setText] = useState('')
         "Content-type":"application/json",
         "Authorization":`Bearer ${token}`
     }
-            axios.post(`http://localhost:8000/api/v1/like/${postId}`, 
+            axios.post(`/api/v1/like/${postId}`, 
                 {}, // Empty body since no data is needed
             {headers})
             .then(response =>{

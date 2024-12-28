@@ -7,30 +7,41 @@ import { UserContext } from "../components/context/usersReducer"
 import axios from "axios"
 import { Users } from "../components/user"
 import { Footer } from "../components/footer"
-
+import { jwtDecode } from "jwt-decode";
 export const Dashboard = () =>{
-  
+    
+    useEffect(()=>{
+      const token = state.user.token
+      if(!token || token===''){
+        navigate('/login')
+        return
+      }
+      try {
+        const decode = jwtDecode(token)
+        console.log(decode)
+        const currentTime = Date.now()/1000
+        if(decode.exp < currentTime){
+            navigate('/login')
+        }
+      } catch (error) {
+       console.log(error) 
+      }
+    }, [])
     const [data, setData] = useState()
     const [msg, setMsg] = useState()
     const {state, dispatch} = useContext(UserContext)
-    setTimeout(()=>{
-        state.user={
-            
-        }
-    }, 360000)
+
     const navigate = useNavigate()
     const headers = {
         "Content-type":"application/json",
         "Authorization":`Bearer ${state.user.token}`
     }
-    if(!state.user || state.user.token === null){
-        navigate('/login')
-    }  
+   
    useEffect(()=>{
     
    })
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/profile/${state.user.username}`, {headers})
+        axios.get(`/api/v1/profile/${state.user.username}`, {headers})
         .then(response =>{
             setData(response.data.user)
             // console.log(data)

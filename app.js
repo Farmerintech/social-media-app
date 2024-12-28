@@ -11,6 +11,9 @@ import LikeRoute from "./src/route/likeRoute.js";
 import ChatRoute from "./src/route/chatRoute.js"; 
 import http from 'http';
 import { Server } from 'socket.io';
+import path from "path";
+import { fileURLToPath } from "url";
+import notifyRoute from "./src/route/notifyRoute.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000
@@ -41,10 +44,15 @@ app.use("/api/v1/follow", FollowRoute)
 app.use("/api/v1/users", UserRoute)
 app.use("/api/v1/like", LikeRoute)
 app.use("/api/v1/chats", ChatRoute)
+app.use("/api/v1/notifications", notifyRoute)
 
 
-app.use(express.static('client'))
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename)
+app.use(express.static(path.join(__dirname, 'src/client/dist')))
+app.get('*', (req, res) =>{
+    res.sendFile(path.join(__dirname, 'src/client/dist/index.html'))
+})
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`)
 })

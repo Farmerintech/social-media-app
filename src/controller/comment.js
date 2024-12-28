@@ -1,4 +1,5 @@
 import { CommentModel } from "../model/commentModel.js";
+import { NotifyModel } from "../model/notificationModel.js";
 import  PostModel  from "../model/postModel.js"
 import mongoose from "mongoose";
 
@@ -23,6 +24,15 @@ export const AddComment  = async (req, res) => {
                 comments:post.comments.length >= 0 ? [...post.comments, newComment]:[newComment]
             }, 
             {new:true}
+        )
+        await NotifyModel.create(
+            {
+                userId:req.user.id,
+                receiver:post.createdBy,
+                message:`${req.user.username} commented on your post`,
+                payload:post._id,
+                type:'comment'
+            }
         )
         return res.status(201).json({message:"Comment created successful", newComment})
     } catch (error) {

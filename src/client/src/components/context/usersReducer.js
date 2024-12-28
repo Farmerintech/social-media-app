@@ -40,7 +40,11 @@ export const UserReducer = (state, action) => {
             }
         case 'Logout':
             // Reset user state on logout
-            return null; // Reset to initial state instead of null
+            return {
+                ...state,
+                user:action.payload // Spread operator to merge incoming user info
+
+            }; // Reset to initial state instead of null
         
              
         default:

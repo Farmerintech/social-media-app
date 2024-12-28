@@ -19,7 +19,13 @@ export const DashMenu = ({aditiionalStyle}) => {
 
     const {state, dispatch } = useContext(UserContext)
     const Logout = () =>{
-        dispatch({type:"Logout"})
+        const user= {
+            id: '',
+            email: '',
+            username: '',
+            token: null,
+        }
+        dispatch({type:"Logout", payload:user})
         navigate('/login')
     }
     return(
@@ -47,14 +53,18 @@ export const DashMenu = ({aditiionalStyle}) => {
                 <Link to ="/my_profile"> 
                 <li className="flex items-center gap-3 mb-3"> <BiUser/>My Profile</li>
                 </Link>
-                <li className="flex items-center gap-3 mb-3"> <MdOutlineShoppingBag/>Mart</li>
+                <Link to ="/notifications">
+                <li className="flex items-center gap-3 mb-3"> <MdOutlineShoppingBag/>Notifications                     
+                <span className=" bg-purple-500 w-[5px] h-[5px] rounded-full "></span>
+                </li>
+                </Link>
                 <li className="flex items-center gap-3 mb-3"> <MdOutlineGroup/>Community</li>
             </ul>
             <hr className="my-4 border-gray-300"/>
             <p>Account</p>
-            <ul className="min-h-screen">
+            <ul className="min-h-screen pointer">
                 <li className="flex items-center gap-3 mb-3"><MdOutlineSettings/>Settings</li>
-                <li className="flex items-center gap-3 mb-3" onClick={Logout}><MdOutlineLogout/>Logout</li>
+                <li className="flex items-center gap-3 mb-3 pointer" onClick={Logout}><MdOutlineLogout/>Logout</li>
             </ul>
         </section>
         <Footer/>

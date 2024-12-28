@@ -17,7 +17,7 @@ export const Chat = () =>{
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/profile/${state.user.username}`, {headers})
+        axios.get(`/api/v1/profile/${state.user.username}`, {headers})
         .then(response =>{
             setData(response.data.user)
             // console.log(data.post)
@@ -35,7 +35,12 @@ export const Chat = () =>{
         <>
         <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} w-[100%] p-5 md:w-[25%] fixed right-0 min-h-screen`}>
             <div className="flex justify-around items-center mb-5">
-                <span className="hidden md:block"><MdOutlineNotifications size={20}/></span>
+                <div className="hidden md:block relative">
+                   <Link to='/notifications'>
+                     <span className="absolute bg-purple-800 w-[5px] h-[5px] rounded-full left-[100] top-[100]"></span>
+                    <MdOutlineNotifications size={20}/>
+                </Link> 
+                </div>
                 <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] md:w-[220px] p-2 text-xs rounded-md`}>
                             <p></p>
                             <div className="flex items-center gap-5 ">
@@ -47,7 +52,7 @@ export const Chat = () =>{
                             </div>
                             </div>
             </div>
-            <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} h-[300px] rounded-md`}>
+            <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} h-[300px] rounded-md min-h-screen`}>
                <div className="flex justify-between items-center p-5">
                 <h3 className="font-bold">Messages</h3>
                 <MdSearch/>
@@ -58,7 +63,7 @@ export const Chat = () =>{
             {data && data.followers.length ?
                 data.followers.map(follower =>(
             <section className={`p-5`}>
-            <Link to ={`/dm/${follower._id}`}><div className=" flex gap-2 w-[100%] items-center ">
+            <Link to ={`/dm/${follower.username}`}><div className=" flex gap-2 w-[100%] items-center ">
                <img src={avater} alt="user" className="w-[30px] 
                h-[30px] rounded "/>
                <p className="text-xs">{follower.username}</p>

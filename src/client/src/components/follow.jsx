@@ -9,7 +9,7 @@ export const handleFollow = (id, username, token) => {
     }
     axios
       .post(
-        `http://localhost:8000/api/v1/follow/${username}`,
+        `/api/v1/follow/${username}`,
         {}, // Empty body since no data is needed
         { headers }
       )

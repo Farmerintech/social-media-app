@@ -22,12 +22,12 @@ export const SinglePostCard = ({postId}) => {
             "Content-type":"application/json",
             "Authorization":`Bearer ${state.user.token}`
         }
-        axios.get(`http://localhost:8000/api/v1/posts/${postId}`, {headers})
+        axios.get(`/api/v1/posts/${postId}`, {headers})
         .then(response =>{
             setData(response.data)
             console.log(response.data.post)
            
-                 axios.get(`http://localhost:8000/api/v1/users`, {headers})
+                 axios.get(`/api/v1/users`, {headers})
                  .then(response =>{
                     console.log(response.data)
                     setRes(response.data)
@@ -55,11 +55,11 @@ export const SinglePostCard = ({postId}) => {
              "Content-type":"application/json",
              "Authorization":`Bearer ${token}`
          }
-                 axios.post(`http://localhost:8000/api/v1/like/${postId}`, 
+                 axios.post(`/api/v1/like/${postId}`, 
                      {}, // Empty body since no data is needed
                  {headers})
                  .then(response =>{
-                    console.log(response.data)
+                    // console.log(response.data)
                  //    setMsg(response.data)
                  setText(response.data.Message)
                 setInterval(()=>{
@@ -75,7 +75,27 @@ export const SinglePostCard = ({postId}) => {
      
      }
      
-
+const DeletePost = ()=>{
+    const headers = {
+        "Content-type":"application/json",
+        "Authorization":`Bearer ${token}`
+    }
+            axios.delete(`/api/v1/posts/${postId}`, 
+                {}, // Empty body since no data is needed
+            {headers})
+            .then(response =>{
+               console.log('post deleted')
+            //    setMsg(response.data)
+            setText(response.data.Message)
+           setInterval(()=>{
+                setText('')
+            }, 1000)
+            })
+            .catch (error => {
+            //  msg = (error.response.data.message)
+            console.log(error)
+            })
+}
     
     return(
         <section className={` ${state.theme === "light" ? "bg-white " :"bg-gray-800 text-white"} md:p-10 p-3`}>
@@ -95,7 +115,7 @@ export const SinglePostCard = ({postId}) => {
                 {data.post.createdBy === state.user.id ? 
                 <div className="flex items-center gap-2">
                      <Link to={`/edit_post/${data.post._id}`}><MdEdit/></Link>
-                     <Link><MdDelete/></Link>
+                     <div onClick={DeletePost}><MdDelete/></div>
                 </div>
                :""
             }

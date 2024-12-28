@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const NotifySchema = mongoose.Schema({
+const NotifySchema =  mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'user'
@@ -13,6 +13,11 @@ const NotifySchema = mongoose.Schema({
         type:String,
         required:true
     },
-    isRead:false
-}, {timestamps})
-export const NotifyModel = mongoose.model('chat', NotifySchema)
+    payload:{
+        type:mongoose.Schema.Types.ObjectId,
+    },
+    type:{
+        type:String,  
+    }
+}, {timestamps: true})
+export const NotifyModel = mongoose.model('notification', NotifySchema)

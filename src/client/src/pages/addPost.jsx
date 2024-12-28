@@ -41,7 +41,7 @@ export const MakePost = () =>{
               "Content-type":"application/json",
               "Authorization":`Bearer ${state.user.token}`
           }
-          axios.post(`http://localhost:8000/api/v1/posts`, form, {headers})
+          axios.post(`/api/v1/posts`, form, {headers})
           .then(response =>{
               setMsg(response.data.message)
               setForm({
@@ -65,9 +65,9 @@ export const MakePost = () =>{
             <div className={`flex flex-wrap justify-around gap-2 items-center `}>
                 <Link to="/"><img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/></Link>
               
-                    <input type="text" 
+                    <textarea type="text" 
                     value={form.content}
-                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-800 text-white"}  outline-none w-[70%] p-2`} 
+                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"}  outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"
                     placeholder="Make a post"
@@ -90,8 +90,8 @@ export const MakePost = () =>{
             <div className="flex justify-around gap-2 items-center ">
                 <Link to="/"><img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/></Link>
               
-                    <input type="text" 
-                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-800 text-white"}  outline-none w-[70%] p-2`} 
+                    <textarea type="text" 
+                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"}  outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"
                     placeholder="Make a post"

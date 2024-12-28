@@ -21,7 +21,7 @@ export const UserCard = ({username}) =>{
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/profile/${username}`, {headers})
+        axios.get(`/api/v1/profile/${username}`, {headers})
         .then(response =>{
             setData(response.data.user)
         })
@@ -34,7 +34,7 @@ export const UserCard = ({username}) =>{
     // }
     }, [data]);
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/posts/user/${username}`, {headers})
+        axios.get(`/api/v1/posts/user/${username}`, {headers})
         .then(response =>{
             setRes(response.data)
             // console.log(response.data)
@@ -69,7 +69,7 @@ export const UserCard = ({username}) =>{
         const headers = {
             "Content-type":"application/json",
         }
-    axios.post('http://localhost:8000/api/v1/auth/login', form, {headers})
+    axios.post('/api/v1/auth/login', form, {headers})
            .then(response =>{
             setMsg(response.data.message)
             setForm({
@@ -113,7 +113,7 @@ export const UserCard = ({username}) =>{
         }
             </div>
             <div >
-                <Link to={`/dm/${data._id}`}><MdMessage/></Link>
+                <Link to={`/dm/${data.username}`}><MdMessage/></Link>
             </div>
             <div>
             <p>{data.bio}</p>

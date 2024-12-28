@@ -12,7 +12,7 @@ export const showComment = () =>{
     }
     
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/posts`, {headers})
+        axios.get(`/api/v1/posts`, {headers})
         .then(response =>{
             setData(response.data)
             // console.log(response.data)

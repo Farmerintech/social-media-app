@@ -6,7 +6,7 @@ export const LikePost = (postId, token) =>{
         "Content-type":"application/json",
         "Authorization":`Bearer ${token}`
     }
-            axios.post(`http://localhost:8000/api/v1/like/${postId}`, 
+            axios.post(`/api/v1/like/${postId}`, 
                 {}, // Empty body since no data is needed
             {headers})
             .then(response =>{

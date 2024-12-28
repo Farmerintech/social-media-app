@@ -49,7 +49,7 @@ export const Login = () => {
         const headers = {
             "Content-type":"application/json",
         }
-    axios.post('http://localhost:8000/api/v1/auth/login', form, {headers})
+    axios.post('/api/v1/auth/login', form, {headers})
            .then(response =>{
             setMsg(response.data.message)
             setForm({

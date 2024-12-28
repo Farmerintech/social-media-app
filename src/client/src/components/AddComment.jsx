@@ -33,7 +33,7 @@ export const AddComment = ({postId}) =>{
               "Content-type":"application/json",
               "Authorization":`Bearer ${state.user.token}`
           }
-          axios.post(`http://localhost:8000/api/v1/posts/${postId}/comment`, form, {headers})
+          axios.post(`/api/v1/posts/${postId}/comment`, form, {headers})
           .then(response =>{
               setMsg(response.data.message);
               console.log(response.data)
@@ -51,7 +51,7 @@ export const AddComment = ({postId}) =>{
             <div className="flex justify-around gap-2 items-center">
                 <img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/>
               
-                    <input type="text" 
+                    <textarea type="text" 
                     className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="comment"

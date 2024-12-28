@@ -17,7 +17,7 @@ export const Main = () =>{
     }
     
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/v1/profile/${state.user.username}`, {headers})
+        axios.get(`/api/v1/profile/${state.user.username}`, {headers})
         .then(response =>{
             setData(response.data.user)
             // console.log(data.followers.length)

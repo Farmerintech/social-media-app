@@ -17,6 +17,7 @@ import { UserProfile } from './pages/usersProfile.jsx';
 import { EditProfile } from './pages/editProfile.jsx';
 import { ChatPage } from './pages/chatPage.jsx';
 import { EditPostPage } from './pages/editPost.jsx';
+import { Notifications } from './components/notification.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -35,7 +36,8 @@ createRoot(document.getElementById('root')).render(
       <Route path="/my_profile" element={<Myprofile />} />
       <Route path="/:username" element={<UserProfile />} />
       <Route path="/edit_profile" element={<EditProfile />} />
-      <Route path="/dm/:id" element={<ChatPage />} />
+      <Route path="/dm/:user" element={<ChatPage />} />
+      <Route path="/notifications" element={<Notifications />} />
     </Routes>
   </BrowserRouter>  
   </UserProvider>
