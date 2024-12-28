@@ -51,7 +51,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 app.use(express.static(path.join('client/dist')))
 app.get('*', (req, res) =>{
-    res.sendFile(path.join('/client/dist/index.html'))
+    res.sendFile(path.join('client/dist/index.html'))
 })
 app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`)
