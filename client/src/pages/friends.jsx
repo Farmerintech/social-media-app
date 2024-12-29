@@ -130,7 +130,7 @@ export const Friends = () => {
                   </div>
                   <div>
                     <button
-                      onClick={() => handleFollow(user.id, user.username)}
+                      onClick={() => handleFollow(user.id, user.username, state.user.token)}
                       className="bg-purple-800 text-white px-2 py-2 rounded"
                     >
                         {data &&

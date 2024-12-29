@@ -9,8 +9,8 @@ import { BiChat, BiHeart } from "react-icons/bi"
 import { Link } from "react-router"
 import { LikePost } from "./likePost"
 import { Modal } from "./modal"
+import { formatMessageDate } from "./date"
 // import { LikePost } from "./likePost"
-
  export const Post = ()=>{
     const [data, setData] = useState()
     const [res, setRes] = useState()
@@ -80,12 +80,15 @@ const [text, setText] = useState('')
                 data.posts.map(post =>( 
             <div className={`md p-5 mb-5 ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} rounded-md`}>
             <Link to={`/post/add_comment/${post._id}`}>
+            <div className="flex items-center justify-between">
             <div className="flex gap-5 ">
                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
                 <div>
                   <h2>{res && res.users.map((user => user._id ===post.createdBy ? <p>{user.username}</p>:""))}</h2>
-                  <p className="text-purple-500">{res && res.users.map((user => user._id ===post.createdBy ? <p>@{user.username}</p>:""))}</p>
+                  <p className="text-purple-500 text-xs">{res && res.users.map((user => user._id ===post.createdBy ? <p>@{user.username}</p>:""))}</p>
                 </div>
+            </div>
+            <p className={`text-xs`}> {formatMessageDate(post.createdAt)}</p>
             </div>
             <div>
             <p>{post.content}</p>

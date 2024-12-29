@@ -24,7 +24,7 @@ export const createPost  = async (req, res) => {
 export const getAllPosts = async (req, res) => {
     try {
         const user = new mongoose.Types.ObjectId(req.user.id)
-        const posts = await PostModel.find().populate("comments");
+        const posts = await PostModel.find().populate("comments").sort({createdAt:-1});
         if(posts.length===0){
             return res.status(403).json({message:"No post found"})
         }
@@ -42,7 +42,7 @@ export const getAllPostsBySpecificUser = async (req, res) => {
             return res.status(404).json({message:"User not found"})
         }
         const _id = user._id
-        const posts = await PostModel.find({createdBy:_id}).populate("comments");
+        const posts = await PostModel.find({createdBy:_id}).populate("comments").sort({createdAt:-1});
         if(posts.length===0){
             return res.status(404).json({message:"No post found"})
         }

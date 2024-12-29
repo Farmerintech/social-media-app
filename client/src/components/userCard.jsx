@@ -150,9 +150,8 @@ export const UserCard = ({username}) =>{
         }
             </div>
             <div >
-                <Link to={`/dm/${data._id}`}><MdMessage/></Link>
-            </div>
-            
+                <Link to={`/dm/${data.username}`}><MdMessage/></Link>
+            </div>  
             <div>
             <p>{data.bio}</p>
             </div>

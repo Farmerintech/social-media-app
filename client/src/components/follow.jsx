@@ -16,7 +16,8 @@ export const handleFollow = (id, username, token) => {
       .then((response) => {
         // setResp(response.data);
         // setMsg(`You are now following ${username}`);
-        alert(`You are now following ${username}`)
+        alert(` ${response.data.message}`);
+        window.vibrate(700)
       })
       .catch((error) => {
         // setMsg(error.response?.data?.message || "Error following user");

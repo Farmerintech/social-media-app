@@ -42,3 +42,23 @@
 .read-the-docs {
   color: #888;
 }
+/* Custom scrollbar for WebKit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Set the scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #8b5cf6; /* Purple color */
+  border-radius: 10px; /* Rounded edges */
+  border: 2px solid transparent; /* To add some spacing */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #5B21B6 transparent; /* Purple scrollbar with transparent track */
+}

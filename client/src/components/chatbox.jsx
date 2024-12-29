@@ -9,6 +9,7 @@ import { Footer } from "./footer"
 import {io} from "socket.io-client"
 import axios from "axios"
 import { useRef } from "react"
+import { formatMessageDate } from "./date"
 export const ChatBox =({userB}) =>{
 
     const [chat, setChat] = useState({
@@ -72,7 +73,7 @@ export const ChatBox =({userB}) =>{
         })
       })
     }, [msg]);
-
+    
     
     return(
         <>
@@ -103,16 +104,19 @@ export const ChatBox =({userB}) =>{
                      ${
                        state.theme === "light"
                          ? msg.sender === state.user.id
-                           ? "relative -right-[60%] top-10 bg-white mt-5"
-                           : "relative left-[0%] top-10 bg-gray-200 mt-5"
+                           ? "relative -right-[60%]  bg-white mt-5"
+                           : "relative left-[0%]  bg-gray-200 mt-5"
                          : msg.sender === state.user.id
-                         ? "relative -right-[60%] top-10 bg-gray-800 mt-5"
-                         : "relative left-[0%] top-10 bg-gray-500 mt-5"
+                         ? "relative -right-[60%]  bg-gray-800 mt-5"
+                         : "relative left-[0%]  bg-gray-500 mt-5"
                      }
-                     px-2 rounded py-1 w-[40%] mb-2
+                     px-2 rounded py-2 w-[40%] mb-2 flex flex-col
                    `}
                  >
-                   {msg.message}
+                  <span className="text-xs text-purple-800">{msg.sender === state.user.id ? state.user.username : userB}:</span>
+                   <span className="">{msg.message}</span>
+                   <span className="text-xs text-purple-800">{formatMessageDate(msg.createdAt)}
+                   </span>
                  </li>
                  
                                                   
@@ -171,23 +175,28 @@ export const ChatBox =({userB}) =>{
             <div className="mb-10">
                 <ul className="mb-20  min-h-screen pb-20 ml-5 mr-5 "  ref={chatRef}>
                 {msg && msg.chats.map(msg=>(
+                
                         <li
                         key={msg._id}
                         className={`
                           ${
                             state.theme === "light"
                               ? msg.sender === state.user.id
-                                ? "relative -right-[60%] top-10 bg-white mt-5"
-                                : "relative left-[0%] top-10 bg-gray-200 mt-5"
+                                ? "relative -right-[60%]  bg-white mt-5"
+                                : "relative left-[0%]  bg-gray-200 mt-5"
                               : msg.sender === state.user.id
-                              ? "relative -right-[60%] top-10 bg-gray-800 mt-5"
-                              : "relative left-[0%] top-10 bg-gray-500 mt-5"
+                              ? "relative -right-[60%]  bg-gray-800 mt-5"
+                              : "relative left-[0%]  bg-gray-500 mt-5"
                           }
-                          px-2 rounded py-1 w-[40%] mb-5
+                          px-2 rounded py-2 w-[40%] mb-5 flex flex-col
                         `}
                       >
-                        {msg.message}
-                      </li>                  
+                   <span className="text-xs text-purple-800">{msg.sender === state.user.id ? state.user.username : userB}:</span>
+                   <span className="">{msg.message}</span>
+                   <span className="text-xs text-purple-800">{formatMessageDate(msg.createdAt)}
+                   </span>
+                </li> 
+                                
                 ))}
                </ul>
             </div>

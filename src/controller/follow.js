@@ -23,7 +23,7 @@ export const FollowandUnfollow = async (req, res) => {
         await UserModel.findByIdAndUpdate(user._id, 
             {following: user.following.length > 0 ? [ ...user.following, followedUser._id]: followedUser._id}, 
             {new:true} )
-        return res.status(200).json({Message:"Followed successfully.."})
+        return res.status(200).json({message:`You are now following ${followedUser.username}`})
         
     }
             await NotifyModel.create(
@@ -40,11 +40,11 @@ export const FollowandUnfollow = async (req, res) => {
     if(alreadyFollowed){
         await UserModel.findByIdAndUpdate(followedUser._id, {$pull: {followers:user._id}}, {new:true} );
         await UserModel.findByIdAndUpdate(user._id, {$pull: {following:followedUser._id}}, {new:true} )
-        return res.status(200).json({Message:"Unfollowed successfully.."})
+        return res.status(200).json({message:`You unfollowed ${followedUser.username}`})
     }
     
    } catch (error) {
     console.log(error)
-    return res.status(500).json({Message:error})
+    return res.status(500).json({message:error})
    }
 }

@@ -52,15 +52,14 @@ export const Login = () => {
     axios.post('/api/v1/auth/login', form, {headers})
            .then(response =>{
             setMsg(response.data.message)
-
-            dispatch({type:"Login", payload:response.data.user})
-            console.log(state.user)
-            navigate('/')
-            setIsLoading(false)
             setForm({
-              username:'',
-              password:''
-          })
+                username:'',
+                password:''
+            })
+            dispatch({type:"Login", payload:response.data.user})
+            navigate('/')
+            console.log(localStorage.getItem('user'))
+            setIsLoading(false)
            })
         .catch (error => {
             setMsg(error.response.data.message)
@@ -82,7 +81,7 @@ export const Login = () => {
             <div className="w-[30px] h-[30px] flex justify-center item-center">
           <p className="text-purple-500 font-bold">Loading...</p>
         </div>}
-            {/* <p className="text-red-500 text-sm">{msg}</p> */}
+            <p className="text-red-500 text-sm">{msg}</p>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Username

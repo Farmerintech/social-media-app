@@ -17,9 +17,9 @@ export const Chat = () =>{
     }
 
     useEffect(()=>{
-        axios.get(`/api/v1/profile/${state.user.username}`, {headers})
+        axios.get(`/api/v1/users`, {headers})
         .then(response =>{
-            setData(response.data.user)
+            setData(response.data.users)
             // console.log(data.post)
         })
      .catch (error => {
@@ -33,7 +33,7 @@ export const Chat = () =>{
 
      return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} w-[100%] p-5 md:w-[25%] fixed right-0 min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} w-[100%] p-5 md:w-[25%] md:fixed md:right-0 min-h-screen`}>
             <div className="flex justify-around items-center mb-5">
                 <div className="hidden md:block relative">
                    <Link to='/notifications'>
@@ -52,7 +52,7 @@ export const Chat = () =>{
                             </div>
                             </div>
             </div>
-            <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} h-[300px] rounded-md min-h-screen`}>
+            <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} h-[300px] rounded-md overflow-y-auto p-4 custom-scrollbar`}>
                <div className="flex justify-between items-center p-5">
                 <h3 className="font-bold">Messages</h3>
                 <MdSearch/>
@@ -60,17 +60,18 @@ export const Chat = () =>{
                </div>
                <section className={` `}>
             
-            {data && data.followers.length ?
-                data.followers.map(follower =>(
+            {data && 
+                data.map(follower =>(
             <section className={`p-5`}>
             <Link to ={`/dm/${follower.username}`}><div className=" flex gap-2 w-[100%] items-center ">
                <img src={avater} alt="user" className="w-[30px] 
                h-[30px] rounded "/>
                <p className="text-xs">{follower.username}</p>
             </div></Link>
-        </section>            ))
-            :<p className="text-center">You have no followers Yet</p>}
-            </section>
+        </section>            
+        ))}
+
+</section>
 
             </section>
             <section className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"}  h-[150px] mt-5`}>

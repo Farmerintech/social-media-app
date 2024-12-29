@@ -9,7 +9,7 @@ export const getNotification = async (req, res) =>{
         if(!receiver){
             return res.status(404).json({message:"No such user exist"})
         }
-        const notification = await NotifyModel.find({receiver:receiverId});
+        const notification = await NotifyModel.find({receiver:receiverId}).sort({createdAt:-1});
         if(!notification){
             return res.status(404).json({message:"You do not have any notification yet"})
         }
