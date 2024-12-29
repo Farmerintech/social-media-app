@@ -52,7 +52,7 @@ export const Friends = () => {
       <section
         className={`${
           state.theme === "light" ? "bg-stone-50 text-black" : "bg-gray-700 text-white"
-        } h-[full] hidden md:flex justify-between min-h-screen`}
+        } h-[full] hidden md:flex justify-between min-h-screen mb-5 pb-5`}
       >
         <DashMenu />
         <main className="flex flex-col gap-5 lg:w-[70%] md:w-[60%] pt-5 relative lg:left-[22%] md:left-[35%]">
@@ -99,7 +99,7 @@ export const Friends = () => {
         </main>
       </section>
 
-      <section className={`min-h-screen ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between } `}>
+      <section className={`min-h-screen ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between  mb-5 pb-5`}>
             <Search/>
           <div
             className={`${

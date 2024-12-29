@@ -35,11 +35,12 @@ export const AddComment = ({postId}) =>{
           }
           axios.post(`/api/v1/posts/${postId}/comment`, form, {headers})
           .then(response =>{
+            setForm({
+                comment:""
+              })
               setMsg(response.data.message);
               console.log(response.data)
-              setForm({
-                form:""
-              })
+             
              })
           .catch (error => {
               setMsg(error.response.data.message)
