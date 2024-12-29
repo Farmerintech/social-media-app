@@ -35,14 +35,14 @@ export const Notifications = () =>{
     }, [data]);
     return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
         <DashMenu/>
         <main className="flex flex-col gap-5 lg:w-[70%] md:w-[60%] pt-5 relative lg:left-[22%] md:left-[35%]">
            <Search/>
              <ul className="flex flex-col gap-5">
                 {data && data.notification.map(msg=>(
                 <Link to={msg.type==="comment" || msg.type==="like" ? `/post/add_comment/${msg.payload}`: '/'}>
-                    <li className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} p-5 rounded-md`}>
+                    <li className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} p-5 rounded-md`}>
                         <p>{msg.message}</p>
                     </li>
                 </Link>
@@ -50,7 +50,7 @@ export const Notifications = () =>{
             </ul>
         </main>
         </section>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
                 <Search/>
                 <div className="flex flex-col gap-5 mt-10">
                 {data && data.notification.map(msg=>(

@@ -51,7 +51,7 @@ export const Friends = () => {
     <>
       <section
         className={`${
-          state.theme === "light" ? "bg-stone-50" : "bg-gray-700 text-white"
+          state.theme === "light" ? "bg-stone-50 text-black" : "bg-gray-700 text-white"
         } h-[full] hidden md:flex justify-between min-h-screen`}
       >
         <DashMenu />
@@ -59,7 +59,7 @@ export const Friends = () => {
           <Search />
           <div
             className={`${
-              state.theme === "light" ? "bg-white" : "bg-gray-800 text-white"
+              state.theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
             }`}
           >
             {res &&
@@ -99,11 +99,11 @@ export const Friends = () => {
         </main>
       </section>
 
-      <section className={`min-h-screen ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} p-5 md:hidden justify-between } `}>
+      <section className={`min-h-screen ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between } `}>
             <Search/>
           <div
             className={`${
-              state.theme === "light" ? "bg-white" : "bg-gray-800 text-white "
+              state.theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white "
             } mt-10`}
           >
             {res &&

@@ -56,12 +56,12 @@ export const Dashboard = () =>{
 
     return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
             <DashMenu/>
             <Main/> 
             <Chat/>
         </section>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full]  md:hidden justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full]  md:hidden justify-between min-h-screen`}>
             <Main/>
             <Footer/>                   
         </section>

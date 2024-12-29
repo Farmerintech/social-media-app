@@ -78,7 +78,7 @@ const [text, setText] = useState('')
             {text !== "" && <Modal text={text}/>}
            {data && data?.posts.length > 0 &&
                 data.posts.map(post =>( 
-            <div className={`md p-5 mb-5 ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} rounded-md`}>
+            <div className={`md p-5 mb-5 ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} rounded-md`}>
             <Link to={`/post/add_comment/${post._id}`}>
             <div className="flex items-center justify-between">
             <div className="flex gap-5 ">
@@ -101,7 +101,7 @@ const [text, setText] = useState('')
                 <p>{post.likes.length}</p></div>
             <div className="flex flex-row gap-2" onClick={showComm}><BiChat/><p>{post.comments.length}</p></div>
             </div>
-            <div className={`p-5 rounded-md ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"}`}>
+            <div className={`p-5 rounded-md ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"}`}>
             <p className="">Comments</p>
             { show && post.comments.map(mycomment =>(
           <div className="mb-5">

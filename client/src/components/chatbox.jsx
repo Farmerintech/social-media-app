@@ -77,12 +77,12 @@ export const ChatBox =({userB}) =>{
     
     return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
         <DashMenu/>
         <main className="flex flex-col gap-5  xl:w-[70%] lg:w-[50%] md:w-[50%] pt-5 relative lg:left-[22%] md:left-[35%]">
         <main className="">
            <div className="flex justify-around items-center mb-5">
-              <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] p-2 text-xs rounded-md`}>
+              <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} shadow-md w-[100%] p-2 text-xs rounded-md`}>
                                       <p></p>
                                       <div className="flex items-center gap-5 ">
                                           <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
@@ -104,7 +104,7 @@ export const ChatBox =({userB}) =>{
                      ${
                        state.theme === "light"
                          ? msg.sender === state.user.id
-                           ? "relative -right-[60%]  bg-white mt-5"
+                           ? "relative -right-[60%]  bg-white text-black mt-5"
                            : "relative left-[0%]  bg-gray-200 mt-5"
                          : msg.sender === state.user.id
                          ? "relative -right-[60%]  bg-gray-800 mt-5"
@@ -134,7 +134,7 @@ export const ChatBox =({userB}) =>{
                       name="message"
                       value={chat.message}
                       onChange={handleForm}
-                       className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-800 text-white" } 
+                       className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-800 text-white" } 
                        shadow appearance-none border-none rounded w-[100%] py-3 px-2
                        leading-tight focus:outline-none focus:shadow-outline`}
                        id="chat" type="text" placeholder="Type here..."/> 
@@ -151,9 +151,9 @@ export const ChatBox =({userB}) =>{
         </main>
           
         </section>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} md:hidden justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} md:hidden justify-between min-h-screen`}>
         <main className="">
-        <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] p-2 text-xs flex items-center`}>
+        <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} shadow-md w-[100%] p-2 text-xs flex items-center`}>
         <Link to='/'>
                <MdChevronLeft size={25}/>
             </Link>      
@@ -182,7 +182,7 @@ export const ChatBox =({userB}) =>{
                           ${
                             state.theme === "light"
                               ? msg.sender === state.user.id
-                                ? "relative -right-[60%]  bg-white mt-5"
+                                ? "relative -right-[60%]  bg-white text-black mt-5"
                                 : "relative left-[0%]  bg-gray-200 mt-5"
                               : msg.sender === state.user.id
                               ? "relative -right-[60%]  bg-gray-800 mt-5"
@@ -211,7 +211,7 @@ export const ChatBox =({userB}) =>{
                       name="message"
                       value={chat.message}
                       onChange={handleForm}
-                       className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } 
+                       className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } 
                        shadow appearance-none border-none rounded w-[100%] py-2 px-2
                        leading-tight focus:outline-none focus:shadow-outline`}
                        id="chat" type="text" placeholder="Type here..."/> 

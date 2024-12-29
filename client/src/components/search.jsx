@@ -12,7 +12,7 @@ export const Search = () =>{
     }
     return(
         <section className="flex justify-between items-center">
-            <form className={`${state.theme === "light" ? "bg-white" :"bg-gray-800"} flex w-[90%] px-10 py-3 items-center gap-5 rounded-md`}>
+            <form className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800"} flex w-[90%] px-10 py-3 items-center gap-5 rounded-md`}>
                 <span><MdSearch size={20}/></span>
                 <input type="text" placeholder="Who are you looking for..?" className={`${state.theme === "light" ? "bg-white" :"bg-gray-800"} outline-none`}/>
             </form>

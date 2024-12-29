@@ -57,12 +57,12 @@ export const UserCard = ({username}) =>{
     return(
         <>
        { data && 
-           <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full]  hidden md:flex justify-between min-h-screen`}>
+           <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full]  hidden md:flex justify-between min-h-screen`}>
                 <DashMenu/>
                 <main className="flex flex-col gap-5 lg:w-[70%] md:w-[60%] p-5 pt-5 relative lg:left-[25%] md:left-[35%]">
                      <Search/>
             <p>{msg}</p>
-            <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white" } p-5`}>
+            <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white" } p-5`}>
              <div className="flex justify-between">
              <div className={`md p-2 mb-2 flex gap-5`}>
                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
@@ -102,7 +102,7 @@ export const UserCard = ({username}) =>{
             <p>Posts:</p>
             {res && res.posts.length > 0 &&
             res.posts.map(post =>( 
-        <div className={`md p-2 mb-2 ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} rounded-md`}>
+        <div className={`md p-2 mb-2 ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} rounded-md`}>
         <Link to={`/post/add_comment/${post._id}`}>
         <div className="flex gap-5 ">
             <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
@@ -130,10 +130,10 @@ export const UserCard = ({username}) =>{
 }
 {
     data && 
-         <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
+         <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
                 <Search/>
            <p>{msg}</p>
-            <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white" } mb-5 mt-5 p-5`}>
+            <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white" } mb-5 mt-5 p-5`}>
             <div className="flex justify-between">
              <div className={`md p-2 mb-2 flex gap-5`}>
                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
@@ -173,7 +173,7 @@ export const UserCard = ({username}) =>{
             <p>Posts:</p>
             {res && res.posts.length > 0 &&
             res.posts.map(post =>( 
-        <div className={`md p-2 mb-2 ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} rounded-md`}>
+        <div className={`md p-2 mb-2 ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} rounded-md`}>
         <Link to={`/post/add_comment/${post._id}`}>
         <div className="flex gap-5 ">
             <img src={avater} className="w-[30px] h-[30px] rounded-full"/>

@@ -45,14 +45,14 @@ export const AddComment = ({postId}) =>{
       }
 
     return(
-        <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} p-5 rounded-md`}>
+        <section className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} p-5 rounded-md`}>
                             <p>{msg}</p>
             <form onSubmit={handleSubmit}>
             <div className="flex justify-around gap-2 items-center">
                 <img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/>
               
                     <textarea type="text" 
-                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
+                    className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="comment"
                     placeholder="Add a comment"

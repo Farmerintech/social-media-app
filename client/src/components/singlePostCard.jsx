@@ -94,7 +94,7 @@ const DeletePost = ()=>{
 }
     
     return(
-        <section className={` ${state.theme === "light" ? "bg-white " :"bg-gray-800 text-white"} md:p-10 p-3`}>
+        <section className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} md:p-10 p-3`}>
             {data.post && 
             <>
             <div className="flex justify-between items-center">
@@ -127,7 +127,7 @@ const DeletePost = ()=>{
                 <p>{data.post.likes.length}</p></div>            
                 <div className="flex flex-row gap-2"><BiChat/><p>{data.post.comments.length}</p></div>
             </div>
-            <div className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} p-5`}>
+            <div className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5`}>
                 <h4 className=" mb-5">Comments</h4>
                 {data.post.comments && data.post.comments.map(comment =>(
           <div>

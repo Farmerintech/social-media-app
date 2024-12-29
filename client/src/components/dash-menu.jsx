@@ -30,15 +30,15 @@ export const DashMenu = ({aditiionalStyle}) => {
     }
     return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} w-[100%] md:w-[260px] p-5 shadow-md min-h-screen fixed left-0 ${aditiionalStyle}`}>
+        <section className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} w-[100%] md:w-[260px] p-5 shadow-md min-h-screen fixed left-0 ${aditiionalStyle}`}>
             <h2 className="font-bold text-2xl">Pur<span className="text-purple-800 text-3xl">ple</span></h2>
                 <div className="flex">
                     <div className="border-b border-gray-300 my-4 w-[100%]"></div>
-                    <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} w-[30px] h-[30px] rounded-full flex items-center justify-center border-gray-700`}>
+                    <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} w-[30px] h-[30px] rounded-full flex items-center justify-center border-gray-700`}>
                         <MdChevronLeft size={20}/>
                     </div>
                 </div>
-            <div className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"}  p-3 rounded-l-lg md:w-[240px]`}>
+            <div className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"}  p-3 rounded-l-lg md:w-[240px]`}>
                 <ProfileCard/>
             </div>
             <ul className="">

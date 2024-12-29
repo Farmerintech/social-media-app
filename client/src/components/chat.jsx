@@ -33,7 +33,7 @@ export const Chat = () =>{
 
      return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} w-[100%] p-5 md:w-[25%] md:fixed md:right-0 min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} w-[100%] p-5 md:w-[25%] md:fixed md:right-0 min-h-screen`}>
             <div className="flex justify-around items-center mb-5">
                 <div className="hidden md:block relative">
                    <Link to='/notifications'>
@@ -41,7 +41,7 @@ export const Chat = () =>{
                     <MdOutlineNotifications size={20}/>
                 </Link> 
                 </div>
-                <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] md:w-[220px] p-2 text-xs rounded-md`}>
+                <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} shadow-md w-[100%] md:w-[220px] p-2 text-xs rounded-md`}>
                             <p></p>
                             <div className="flex items-center gap-5 ">
                                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
@@ -52,7 +52,7 @@ export const Chat = () =>{
                             </div>
                             </div>
             </div>
-            <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} h-[300px] rounded-md overflow-y-auto p-4 custom-scrollbar`}>
+            <section className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} h-[300px] rounded-md overflow-y-auto p-4 custom-scrollbar`}>
                <div className="flex justify-between items-center p-5">
                 <h3 className="font-bold">Messages</h3>
                 <MdSearch/>
@@ -74,7 +74,7 @@ export const Chat = () =>{
 </section>
 
             </section>
-            <section className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"}  h-[150px] mt-5`}>
+            <section className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"}  h-[150px] mt-5`}>
                <div className="flex justify-between items-center p-5">
                 <h3 className="font-bold">Community</h3>
                

@@ -52,7 +52,7 @@ export const AddPost = () =>{
       }
 
     return(
-        <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} p-5 rounded-md`}>
+        <section className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} p-5 rounded-md`}>
             <form onSubmit={handleSubmit}>
                 <p>{msg}</p>
             <div className="flex justify-around gap-2 items-center">
@@ -60,7 +60,7 @@ export const AddPost = () =>{
               
                     <textarea type="text" 
                     value={form.content}
-                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
+                    className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"
                     placeholder="Make a Quick post"

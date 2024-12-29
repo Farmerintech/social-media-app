@@ -56,18 +56,18 @@ export const MakePost = () =>{
 
     return(
         <>
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full] hidden md:flex justify-between min-h-screen`}>
         <DashMenu/>
         <main className="flex flex-col gap-5 lg:w-[70%] md:w-[60%] pt-5 relative lg:left-[22%] md:left-[35%]">
            <Search/>
-            <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} p-5`}>
+            <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} p-5`}>
                 <p>{msg}</p>
             <div className={`flex flex-wrap justify-around gap-2 items-center `}>
                 <Link to="/"><img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/></Link>
               
                     <textarea type="text" 
                     value={form.content}
-                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"}  outline-none w-[70%] p-2`} 
+                    className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"}  outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"
                     placeholder="Make a post"
@@ -83,7 +83,7 @@ export const MakePost = () =>{
         </section>
        
        
-        <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
+        <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
         <Search/>
         <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} p-5 mt-5 `}>
                 <p>{msg}</p>
@@ -91,7 +91,7 @@ export const MakePost = () =>{
                 <Link to="/"><img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/></Link>
               
                     <textarea type="text" 
-                    className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"}  outline-none w-[70%] p-2`} 
+                    className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"}  outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="content"
                     placeholder="Make a post"

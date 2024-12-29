@@ -31,7 +31,7 @@ export const ProfileCard = () =>{
     return(
         <>
        { data && 
-       <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} shadow-md w-[100%] md:w-[220px] h-[auto] p-2 text-xs rounded-md`}>
+       <section className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white"} shadow-md w-[100%] md:w-[220px] h-[auto] p-2 text-xs rounded-md`}>
             <p>{msg}</p>
             <div className="flex gap-5 ">
                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>

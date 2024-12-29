@@ -55,12 +55,12 @@ const [isLoading, setIsLoading] = useState(false)
     return(
         <>
        { state.user && 
-           <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} h-[full]  hidden md:flex justify-between min-h-screen`}>
+           <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} h-[full]  hidden md:flex justify-between min-h-screen`}>
                 <DashMenu/>
                 <main className="flex flex-col gap-5 lg:w-[70%] md:w-[60%] p-5 pt-5 relative lg:left-[25%] md:left-[35%]">
                      <Search/>
             <p>{msg}</p>
-            <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white" } p-5`}>
+            <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white" } p-5`}>
             <div className={`md p-2 mb-2 flex gap-5`}>
                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
                 <div>
@@ -79,14 +79,14 @@ const [isLoading, setIsLoading] = useState(false)
             <div>
                 <p>Edit profile:</p>
                 <p>{msg}</p>
-                <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white" }`}>
+                <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white" }`}>
                 <div className="py-5 px-10 w-[full]">
                 <p>{state.user.username}</p>
              <input 
             name="username"
             value={form.username}
             onChange={handleForm}
-           className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
+           className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
             leading-tight focus:outline-none focus:shadow-outline`}
             id="username" type="text" placeholder="Username" disabled/>
             </div>  
@@ -96,7 +96,7 @@ const [isLoading, setIsLoading] = useState(false)
             name="email"
             value={form.email}
             onChange={handleForm}
-           className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
+           className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
             leading-tight focus:outline-none focus:shadow-outline`}
             id="email" type="text" placeholder="email"/> 
             </div> 
@@ -106,7 +106,7 @@ const [isLoading, setIsLoading] = useState(false)
             name="bio"
             value={form.bio}
             onChange={handleForm}
-           className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
+           className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
             leading-tight focus:outline-none focus:shadow-outline h-[100px]`}
             id="bio" type="text" placeholder="bio"/> 
             </div> 
@@ -125,10 +125,10 @@ const [isLoading, setIsLoading] = useState(false)
 }
 {
     state.user && 
-         <section className={` ${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
+         <section className={` ${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} p-5 md:hidden justify-between min-h-screen`}>
                 <Search/>
            <p>{msg}</p>
-            <div className={` ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white" } mb-5 mt-5 p-5`}>
+            <div className={` ${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white" } mb-5 mt-5 p-5`}>
             <div className={`md p-2 mb-2 flex gap-5`}>
                 <img src={avater} className="w-[30px] h-[30px] rounded-full"/>
                 <div>
@@ -146,14 +146,14 @@ const [isLoading, setIsLoading] = useState(false)
             </div>
             <div className="mb-5">
                 <p>Edit profile:</p>
-              <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white" } mb-10`}>
+              <form onSubmit={handleSubmit} className={`${state.theme === "light" ? "bg-white text-black" :"bg-gray-800 text-white" } mb-10`}>
               <div className="py-5 px-10 w-[full]">
                 <p>{state.user.username}</p>
              <input 
             name="username"
             value={form.username}
             onChange={handleForm}
-           className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
+           className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
             leading-tight focus:outline-none focus:shadow-outline`}
             id="username" type="text" placeholder="Username" disabled/>
             </div>  
@@ -163,7 +163,7 @@ const [isLoading, setIsLoading] = useState(false)
             name="email"
             value={form.email}
             onChange={handleForm}
-           className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
+           className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
             leading-tight focus:outline-none focus:shadow-outline`}
             id="email" type="text" placeholder="email"/> 
             </div> 
@@ -173,7 +173,7 @@ const [isLoading, setIsLoading] = useState(false)
             name="bio"
             value={form.bio}
             onChange={handleForm}
-           className={`${state.theme === "light" ? "bg-stone-50" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
+           className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white" } shadow appearance-none border-none rounded w-[full] py-2 px-10 
             leading-tight focus:outline-none focus:shadow-outline h-[100px]`}
             id="bio" type="text" placeholder="bio"/> 
             </div> 
