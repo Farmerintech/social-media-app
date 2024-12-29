@@ -2,7 +2,7 @@ import { useState } from "react"
 import image from "../assets/Exams-cuate.png"
 import axios from "axios"
 import video from "../assets/loading-unscreen.gif"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import {FaEye, FaEyeSlash} from "react-icons/fa"
 export const SignUp = () => {
 
@@ -27,6 +27,9 @@ export const SignUp = () => {
             [event.target.name]:event.target.value
         })
     }
+
+    const navigate = useNavigate()
+
     const handleSubmit = (event) => {
       setIsLoading(true)
         event.preventDefault()
@@ -64,6 +67,7 @@ export const SignUp = () => {
                 secondPassword:''
             })
             setIsLoading(false)
+            navigate('/login')
            })
         .catch (error => {
             setMsg(error.response.data.message)
@@ -71,6 +75,7 @@ export const SignUp = () => {
             console.log(error)
         })
     }
+
     return(
         <div className="w-[full] mt-10 flex flex-wrap items-center justify-center content-center ">
         <div className=" md:w-[30%] w-[80%] mt-10 flex justify-center">

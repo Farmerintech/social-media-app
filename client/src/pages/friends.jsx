@@ -42,7 +42,7 @@ export const Friends = () => {
         setMsg(error.response?.data?.message || "Error fetching users list");
         console.error(error);
       });
-  }, [state.user.id]);
+  }, [data]);
 
   // Handle follow button click
   

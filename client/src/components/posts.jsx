@@ -60,6 +60,7 @@ const [text, setText] = useState('')
                console.log(response.data)
             //    setMsg(response.data)
             setText(response.data.Message)
+            window.navigator.vibrate(700)
            setInterval(()=>{
                 setText('')
             }, 1000)

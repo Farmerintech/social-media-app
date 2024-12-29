@@ -37,6 +37,9 @@ export const AddComment = ({postId}) =>{
           .then(response =>{
               setMsg(response.data.message);
               console.log(response.data)
+              setForm({
+                form:""
+              })
              })
           .catch (error => {
               setMsg(error.response.data.message)
