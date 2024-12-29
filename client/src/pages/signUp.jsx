@@ -82,12 +82,12 @@ export const SignUp = () => {
                 <p className="text-lg">Enter Details to Sign up</p>
             </div>
             {isLoading &&
-            <div className="w-[30px] h-[30px] flex justify-center item-center">
-          <img src={video} controls/>
-        </div>}
+            <div className="flex justify-center item-center">
+          <p className="text-purple-500 font-bold">Loading...</p>
+          </div>}
             <p className="text-red-500 text-sm">{msg}</p>
-            <div className="flex flex-wrap md:gap-6">
-          <div className="mb-4">
+            <div className="flex md:gap-6 flex-wrap">
+            <div className="relative mb-6 w-full md:w-auto">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Username
             </label>
@@ -95,11 +95,11 @@ export const SignUp = () => {
             name="username"
             value={form.username}
             onChange={handleForm}
-            className="shadow appearance-none border rounded w-[full] py-2 px-10 
+            className="shadow appearance-none border rounded py-2 px-10 w-full
             text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="username" type="text" placeholder="Username"/>
           </div>
-          <div className="mb-4">
+          <div className="relative mb-6 w-full md:w-auto">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Email
             </label>
@@ -107,13 +107,13 @@ export const SignUp = () => {
             name="email"
             value={form.email}
             onChange={handleForm}
-            className="shadow appearance-none border rounded w-[full] py-2 px-10 
+            className="shadow appearance-none border rounded py-2 px-10 w-full
             text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="email" type="text" placeholder="Email"/>
           </div>
           </div>
           <div className="flex md:gap-6 flex-wrap">
-          <div className="relative mb-6">
+          <div className="relative mb-6 w-full md:w-auto">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Password
             </label>
@@ -128,7 +128,7 @@ export const SignUp = () => {
             type= {show ? "text" : "password"}
             placeholder="******************"/>
           </div>
-          <div className="mb-6 relative">
+          <div className="mb-6 relative w-full md:w-auto">
             <label className="block text-gray-700 text-sm font-bold mb-2">
              Confirm Password
             </label>
@@ -146,7 +146,7 @@ export const SignUp = () => {
           </div>
           <div className="flex flex-col-reverse justify-between mt-5">
             <button className="bg-purple-500 hover:bg-purple-700 
-            text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+            text-white font-bold py-2 px-10 md:px-4 rounded focus:outline-none focus:shadow-outline" 
             type="submit">
               Sign Up
             </button>

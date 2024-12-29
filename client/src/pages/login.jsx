@@ -72,14 +72,14 @@ export const Login = () => {
         <div className=" md:w-[30%] w-[80%] mt-10 flex justify-center">
             <img src={image} alt="login-page" className="w-[full] h-[300px] "/>
         </div>
-        <form className="rounded px-10 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+        <form className="rounded px-10 pt-6 pb-8 mb-4 " onSubmit={handleSubmit}>
             <div className="mt-10 mb-10 ">
                 <h3 className="font-bold text-3xl">Welcome!</h3>
                 <p className="text-lg">Enter Details to Login</p>
             </div>
             {isLoading &&
             <div className="w-[30px] h-[30px] flex justify-center item-center">
-          <img src={video} controls/>
+          <p className="text-purple-500 font-bold">Loading...</p>
         </div>}
             <p className="text-red-500 text-sm">{msg}</p>
           <div className="mb-4">
