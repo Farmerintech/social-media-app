@@ -101,11 +101,11 @@ export const SignUp = () => {
             value={form.username}
             onChange={handleForm}
             className="shadow appearance-none border rounded py-2 px-10 w-full
-            text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            leading-tight focus:outline-none focus:shadow-outline" 
             id="username" type="text" placeholder="Username"/>
           </div>
           <div className="relative mb-6 w-full md:w-auto">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-sm font-bold mb-2">
               Email
             </label>
             <input 
@@ -113,13 +113,13 @@ export const SignUp = () => {
             value={form.email}
             onChange={handleForm}
             className="shadow appearance-none border rounded py-2 px-10 w-full
-            text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            leading-tight focus:outline-none focus:shadow-outline" 
             id="email" type="text" placeholder="Email"/>
           </div>
           </div>
           <div className="flex md:gap-6 flex-wrap">
           <div className="relative mb-6 w-full md:w-auto">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-sm font-bold mb-2">
               Password
             </label>
             <p className="absolute top-10 right-3" onClick={showPassword}>{show ? <FaEye/>: <FaEyeSlash/>}</p>
@@ -128,13 +128,13 @@ export const SignUp = () => {
               value={form.password}
               onChange={handleForm}
             className="shadow appearance-none border
-            rounded w-full py-2 px-10 text-gray-700 mb-3 leading-tight 
+            rounded w-full py-2 px-10 mb-3 leading-tight 
             focus:outline-none focus:shadow-outline" id="password" 
             type= {show ? "text" : "password"}
             placeholder="******************"/>
           </div>
           <div className="mb-6 relative w-full md:w-auto">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-sm font-bold mb-2">
              Confirm Password
             </label>
             <p className="absolute top-10 right-3" onClick={showPassword}>{show ? <FaEye/>: <FaEyeSlash/>}</p>

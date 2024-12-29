@@ -18,8 +18,7 @@ export const AddComment = ({postId}) =>{
     }
     const handleForm = (event) =>{
         setForm({
-            ...form,
-            [event.target.name]:event.target.value
+            comment:event.target.value
         })
         console.log(form)
     }
@@ -35,10 +34,10 @@ export const AddComment = ({postId}) =>{
           }
           axios.post(`/api/v1/posts/${postId}/comment`, form, {headers})
           .then(response =>{
-            setForm({
-                comment:""
-              })
               setMsg(response.data.message);
+              setForm({
+                comment:""
+            })
               console.log(response.data)
              
              })
