@@ -54,7 +54,7 @@ export const SignUp = () => {
             "Content-type":"application/json",
         }
         const body = {username:form.username, email:form.email, password:form.password}
-    axios.post('http://localhost:8000/api/v1/auth/register', body, {headers})
+    axios.post('/api/v1/auth/register', body, {headers})
            .then(response =>{
             setMsg(response.data.message)
             setForm({
@@ -72,7 +72,7 @@ export const SignUp = () => {
         })
     }
     return(
-        <div className="w-full mt-10 flex flex-wrap items-center justify-center content-center ">
+        <div className="w-[full] mt-10 flex flex-wrap items-center justify-center content-center ">
         <div className=" md:w-[30%] w-[80%] mt-10 flex justify-center">
             <img src={image} alt="login-page" className="w-[full] h-[300px] "/>
         </div>
@@ -95,7 +95,7 @@ export const SignUp = () => {
             name="username"
             value={form.username}
             onChange={handleForm}
-            className="shadow appearance-none border rounded w-[full] py-2 px-4 md:px-10 
+            className="shadow appearance-none border rounded w-[full] py-2 px-10 
             text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="username" type="text" placeholder="Username"/>
           </div>
@@ -107,7 +107,7 @@ export const SignUp = () => {
             name="email"
             value={form.email}
             onChange={handleForm}
-            className="shadow appearance-none border rounded w-[full] py-2 px-4 md:px-10 
+            className="shadow appearance-none border rounded w-[full] py-2 px-10 
             text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="email" type="text" placeholder="Email"/>
           </div>
@@ -123,7 +123,7 @@ export const SignUp = () => {
               value={form.password}
               onChange={handleForm}
             className="shadow appearance-none border
-            rounded w-full py-2 md:px-10 px-4 text-gray-700 mb-3 leading-tight 
+            rounded w-full py-2 px-10 text-gray-700 mb-3 leading-tight 
             focus:outline-none focus:shadow-outline" id="password" 
             type= {show ? "text" : "password"}
             placeholder="******************"/>
@@ -138,13 +138,12 @@ export const SignUp = () => {
               value={form.secondPassword}
               onChange={handleForm}
             className="shadow appearance-none border
-            rounded w-full py-2 md:px-10 px-4 text-gray-700 mb-3 leading-tight 
+            rounded w-full py-2 px-10 text-gray-700 mb-3 leading-tight 
             focus:outline-none focus:shadow-outline" id="secondPassword" 
             type= {show ? "text" : "password"}
             placeholder="******************"/>
           </div>
           </div>
-         
           <div className="flex flex-col-reverse justify-between mt-5">
             <button className="bg-purple-500 hover:bg-purple-700 
             text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
