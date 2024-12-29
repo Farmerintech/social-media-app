@@ -95,7 +95,7 @@ export const SignUp = () => {
             name="username"
             value={form.username}
             onChange={handleForm}
-            className="shadow appearance-none border rounded w-[full] py-2 px-10 
+            className="shadow appearance-none border rounded w-[full] py-2 px-4 md:px-10 
             text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="username" type="text" placeholder="Username"/>
           </div>
@@ -107,7 +107,7 @@ export const SignUp = () => {
             name="email"
             value={form.email}
             onChange={handleForm}
-            className="shadow appearance-none border rounded w-[full] py-2 px-10 
+            className="shadow appearance-none border rounded w-[full] py-2 px-4 md:px-10 
             text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="email" type="text" placeholder="Email"/>
           </div>
@@ -123,7 +123,7 @@ export const SignUp = () => {
               value={form.password}
               onChange={handleForm}
             className="shadow appearance-none border
-            rounded w-full py-2 px-10 text-gray-700 mb-3 leading-tight 
+            rounded w-full py-2 md:px-10 px-4 text-gray-700 mb-3 leading-tight 
             focus:outline-none focus:shadow-outline" id="password" 
             type= {show ? "text" : "password"}
             placeholder="******************"/>
@@ -138,26 +138,13 @@ export const SignUp = () => {
               value={form.secondPassword}
               onChange={handleForm}
             className="shadow appearance-none border
-            rounded w-full py-2 px-10 text-gray-700 mb-3 leading-tight 
+            rounded w-full py-2 md:px-10 px-4 text-gray-700 mb-3 leading-tight 
             focus:outline-none focus:shadow-outline" id="secondPassword" 
             type= {show ? "text" : "password"}
             placeholder="******************"/>
           </div>
           </div>
-          {/* <div className="px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-        Gender
-      </label>
-      <div className="relative">
-        <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-10 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-    </div>*/}
+         
           <div className="flex flex-col-reverse justify-between mt-5">
             <button className="bg-purple-500 hover:bg-purple-700 
             text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
