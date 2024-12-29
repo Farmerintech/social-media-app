@@ -55,6 +55,7 @@ export const AddComment = ({postId}) =>{
                 <img src={avater} alt="user" className="w-[30px] h-[30px] rounded-full"/>
               
                     <textarea type="text" 
+                    value={form.comment}
                     className={`${state.theme === "light" ? "bg-stone-50 text-black" :"bg-gray-700 text-white"} outline-none w-[70%] p-2`} 
                     onChange={handleForm}
                     name="comment"
