@@ -21,7 +21,7 @@ export const ProfileCard = () =>{
             // console.log(data.post)
         })
      .catch (error => {
-         setMsg(error.response.data.message)
+        //  setMsg(error.response.data.message)
          console.log(error)
      })
     //  if(!state.user || state.user.username === ''){

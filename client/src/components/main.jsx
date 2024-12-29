@@ -26,8 +26,7 @@ export const Main = () =>{
          setMsg(error.response.data.message)
          console.log(error)
      })
-     if(!state.user || state.user.username === ''){
-    }
+    
     }, [data]);
    
 
@@ -36,7 +35,7 @@ export const Main = () =>{
             <Search/>
             <section className={`${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} flex w-[full] px-10 py-3 items-center gap-5 `}>
 
-            {data && data.followers.length ?
+            {data && data.followers.length > 0 ?
                 data.followers.map(follower =>(
                 <Users user={follower.username}/>
             ))

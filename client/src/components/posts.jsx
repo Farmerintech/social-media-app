@@ -76,7 +76,7 @@ const [text, setText] = useState('')
     return (
         <section className="mb-20">
             {text !== "" && <Modal text={text}/>}
-           {data && data.posts.length > 0 &&
+           {data && data?.posts.length > 0 &&
                 data.posts.map(post =>( 
             <div className={`md p-5 mb-5 ${state.theme === "light" ? "bg-white" :"bg-gray-800 text-white"} rounded-md`}>
             <Link to={`/post/add_comment/${post._id}`}>

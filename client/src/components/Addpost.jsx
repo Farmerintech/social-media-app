@@ -46,7 +46,7 @@ export const AddPost = () =>{
               })
              })
           .catch (error => {
-              setMsg(error.response.data.message)
+            setMsg("No post yet")
               console.log(error)
           })
       }

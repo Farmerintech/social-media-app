@@ -52,41 +52,7 @@ export const UserCard = ({username}) =>{
             bio:""
         }
     )
-    const handleForm = (event) =>{
-        setForm({
-            ...form,
-            [event.target.name]:event.target.value
-        })
-    }
-    const handleSubmit = (event) => {
-      setIsLoading(true)
-        event.preventDefault()
-        if(form.bio === ''){
-            setMsg("empty fied cannot be updated")
-            setIsLoading(false)
-            return
-        }
-        const headers = {
-            "Content-type":"application/json",
-        }
-    axios.post('/api/v1/auth/login', form, {headers})
-           .then(response =>{
-            setMsg(response.data.message)
-            setForm({
-                username:'',
-                password:''
-            })
-            dispatch({type:"Login", payload:response.data.user})
-            navigate('/')
-            console.log(localStorage.getItem('user'))
-            setIsLoading(false)
-           })
-        .catch (error => {
-            setMsg(error.response.data.message)
-            setIsLoading(false)
-            console.log(error)
-        })
-    }
+  
 
     return(
         <>
