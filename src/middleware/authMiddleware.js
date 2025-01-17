@@ -10,7 +10,6 @@ export const authMiddleWare = (req, res, next) => {
         if(!decoded || decoded == null){
             return res.status(401).json({message:"You are not authorized"})
         }
-        
             req.user = decoded
             next()    
     } catch (error) {
